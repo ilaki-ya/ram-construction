@@ -5,36 +5,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101820">
-  <meta name="description" content="RAM Construction — quality construction, residential homes, commercial buildings and renovation services.">
+  <meta name="description" content="RAM Construction — residential construction, commercial buildings, renovation and project consultation.">
   <title>RAM Construction | Building Your Dreams</title>
 
   <style>
     :root {
       --navy: #101820;
-      --navy-light: #192832;
+      --navy-light: #1c2b36;
       --gold: #f5b942;
       --white: #ffffff;
-      --muted: #64717c;
+      --text: #24313b;
+      --muted: #667581;
       --light: #f5f7f9;
-      --shadow: 0 12px 35px rgba(0,0,0,.10);
+      --border: #e0e6eb;
+      --shadow: 0 12px 35px rgba(0,0,0,.12);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 85px;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      color: #1d2830;
+      color: var(--text);
       line-height: 1.6;
-      background: var(--white);
+      background: #fff;
+    }
+
+    body, button, input, textarea, select {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button, input, textarea, select {
+      font-size: 14px;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     a {
@@ -42,33 +56,27 @@
       text-decoration: none;
     }
 
-    button, input, textarea, select {
-      font: inherit;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
+    img {
+      max-width: 100%;
     }
 
     .container {
       width: min(1150px, 90%);
-      margin: auto;
+      margin-inline: auto;
     }
 
-    /* Navigation */
+    /* NAVIGATION */
 
-    header {
+    .site-header {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      background: rgba(12, 20, 27, .84);
+      inset: 0 0 auto;
+      z-index: 20;
+      background: rgba(12, 20, 27, .88);
       border-bottom: 1px solid rgba(255,255,255,.12);
     }
 
     .navbar {
-      min-height: 78px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,10 +84,10 @@
     }
 
     .logo {
-      color: var(--white);
-      font-size: 25px;
+      color: #fff;
+      font-size: 23px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: .5px;
       white-space: nowrap;
     }
 
@@ -105,81 +113,85 @@
       color: var(--gold);
     }
 
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
+    .nav-links .nav-cta {
+      display: inline-block;
       padding: 10px 16px;
       border-radius: 5px;
+      color: var(--navy);
+      background: var(--gold);
     }
 
     .menu-toggle {
       display: none;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,.4);
-      color: white;
-      padding: 7px 11px;
+      padding: 8px 12px;
+      border: 1px solid #7c8790;
       border-radius: 5px;
+      color: #fff;
+      background: transparent;
       cursor: pointer;
     }
 
-    /* Hero video background */
+    /* VIDEO HERO */
 
     .hero {
+      position: relative;
       min-height: 100vh;
       min-height: 100svh;
-      position: relative;
       display: flex;
       align-items: center;
       overflow: hidden;
+      isolation: isolate;
+      color: #fff;
       background: #17242d;
-      color: white;
     }
 
     .hero-video {
       position: absolute;
       inset: 0;
+      z-index: -2;
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      z-index: 0;
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: -1;
       background: linear-gradient(
         90deg,
-        rgba(7, 15, 22, .88) 0%,
-        rgba(7, 15, 22, .64) 48%,
-        rgba(7, 15, 22, .25) 100%
+        rgba(7,15,22,.88),
+        rgba(7,15,22,.65) 52%,
+        rgba(7,15,22,.25)
       );
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
       width: min(780px, 90%);
-      margin: auto;
-      padding-top: 100px;
-      padding-bottom: 65px;
+      margin: 0 auto;
+      padding-top: 105px;
+      padding-bottom: 55px;
     }
 
     .eyebrow {
-      color: var(--gold);
-      font-weight: 800;
+      margin-bottom: 13px;
+      color: #d99716;
       font-size: 13px;
+      font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 16px;
+    }
+
+    .hero .eyebrow {
+      color: var(--gold);
     }
 
     .hero h1 {
-      font-size: clamp(38px, 6.2vw, 76px);
-      line-height: 1.08;
       margin-bottom: 22px;
+      font-size: clamp(38px, 6vw, 74px);
+      line-height: 1.1;
       letter-spacing: -1.5px;
     }
 
@@ -188,16 +200,16 @@
     }
 
     .hero p {
-      max-width: 610px;
+      max-width: 620px;
+      margin-bottom: 28px;
       color: #edf1f3;
       font-size: clamp(16px, 2vw, 19px);
-      margin-bottom: 30px;
     }
 
-    .buttons {
+    .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 13px;
+      gap: 12px;
     }
 
     .btn {
@@ -205,9 +217,9 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      padding: 13px 21px;
       border: 2px solid transparent;
       border-radius: 5px;
-      padding: 13px 22px;
       font-weight: 700;
       cursor: pointer;
       transition: transform .2s, background .2s;
@@ -218,92 +230,88 @@
     }
 
     .btn-gold {
-      background: var(--gold);
       color: var(--navy);
+      background: var(--gold);
     }
 
     .btn-outline {
-      border-color: rgba(255,255,255,.75);
-      color: white;
-      background: rgba(255,255,255,.04);
+      color: #fff;
+      border-color: rgba(255,255,255,.7);
+      background: transparent;
     }
 
-    .video-note {
+    .hero-note {
       margin-top: 22px;
-      color: rgba(255,255,255,.7);
+      color: rgba(255,255,255,.75);
       font-size: 12px;
     }
 
-    /* Common sections */
+    /* SHARED SECTIONS */
 
-    section:not(.hero) {
+    .section {
       padding: 82px 0;
     }
 
     .section-heading {
-      max-width: 700px;
-      margin: 0 auto 42px;
+      max-width: 720px;
+      margin: 0 auto 40px;
       text-align: center;
     }
 
-    .section-heading .eyebrow {
-      margin-bottom: 9px;
-    }
-
     .section-heading h2 {
+      margin-bottom: 13px;
       color: var(--navy);
       font-size: clamp(28px, 4vw, 42px);
       line-height: 1.2;
-      margin-bottom: 13px;
     }
 
     .section-heading p {
       color: var(--muted);
     }
 
-    /* About */
+    /* ABOUT */
 
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 45px;
       align-items: center;
+      gap: 45px;
     }
 
     .about-visual {
       min-height: 350px;
-      border-radius: 12px;
-      padding: 30px;
       display: flex;
       align-items: flex-end;
+      padding: 30px;
+      border-radius: 12px;
+      color: #fff;
       background:
-        linear-gradient(0deg, rgba(7,15,22,.75), rgba(7,15,22,.05)),
+        linear-gradient(0deg, rgba(7,15,22,.8), transparent),
         url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85")
         center/cover;
-      color: white;
       box-shadow: var(--shadow);
     }
 
     .about-visual h3 {
-      font-size: 27px;
+      font-size: 29px;
       line-height: 1.25;
     }
 
     .about-copy h2 {
+      margin-bottom: 17px;
+      color: var(--navy);
       font-size: clamp(28px, 4vw, 40px);
       line-height: 1.2;
-      color: var(--navy);
-      margin-bottom: 18px;
     }
 
     .about-copy p {
+      margin-bottom: 14px;
       color: var(--muted);
-      margin-bottom: 15px;
     }
 
     .check-list {
-      list-style: none;
       margin: 20px 0 25px;
+      list-style: none;
     }
 
     .check-list li {
@@ -313,78 +321,77 @@
 
     .check-list li::before {
       content: "✓";
+      margin-right: 10px;
       color: #16805d;
       font-weight: 900;
-      margin-right: 10px;
     }
 
-    /* Services */
+    /* SERVICES */
 
-    #services {
+    .services-section {
       background: var(--light);
     }
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
     .service-card {
-      background: white;
-      border: 1px solid #e7ebef;
+      padding: 27px;
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 28px;
-      transition: transform .25s, box-shadow .25s;
+      background: #fff;
+      transition: transform .2s, box-shadow .2s;
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
 
     .service-icon {
+      width: 52px;
+      height: 52px;
       display: grid;
       place-items: center;
-      width: 54px;
-      height: 54px;
+      margin-bottom: 17px;
       border-radius: 10px;
       background: #fff3d8;
-      font-size: 27px;
-      margin-bottom: 18px;
+      font-size: 26px;
     }
 
     .service-card h3 {
-      color: var(--navy);
-      font-size: 20px;
       margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 19px;
     }
 
     .service-card p {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
     }
 
-    /* Projects */
+    /* PROJECTS */
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
     .project-card {
       overflow: hidden;
+      border: 1px solid var(--border);
       border-radius: 10px;
-      border: 1px solid #e7ebef;
-      background: white;
-      box-shadow: 0 5px 20px rgba(0,0,0,.04);
+      background: #fff;
     }
 
     .project-card img {
       display: block;
       width: 100%;
-      height: 220px;
+      height: 225px;
       object-fit: cover;
       background: #e8ecef;
     }
@@ -394,8 +401,8 @@
     }
 
     .project-copy h3 {
+      margin-bottom: 8px;
       color: var(--navy);
-      margin-bottom: 7px;
     }
 
     .project-copy p {
@@ -403,57 +410,58 @@
       font-size: 14px;
     }
 
-    .project-disclaimer {
+    .project-note {
+      margin-top: 22px;
       color: var(--muted);
       font-size: 13px;
       text-align: center;
-      margin-top: 22px;
     }
 
-    /* Call to action */
+    /* CALL TO ACTION */
 
-    .cta {
+    .cta-section {
+      color: #fff;
       background: var(--navy);
-      color: white;
       text-align: center;
     }
 
-    .cta h2 {
-      font-size: clamp(29px, 4vw, 43px);
+    .cta-section h2 {
+      margin-bottom: 15px;
+      font-size: clamp(29px, 4vw, 42px);
       line-height: 1.2;
-      margin-bottom: 14px;
     }
 
-    .cta p {
-      color: #d0d8de;
-      max-width: 620px;
+    .cta-section p {
+      max-width: 650px;
       margin: 0 auto 25px;
+      color: #d2dbe1;
     }
 
-    /* Contact */
+    /* CONTACT */
 
     .contact-grid {
       display: grid;
       grid-template-columns: .8fr 1.2fr;
+      align-items: start;
       gap: 40px;
     }
 
     .contact-info h3 {
-      font-size: 25px;
-      color: var(--navy);
       margin-bottom: 13px;
+      color: var(--navy);
+      font-size: 25px;
     }
 
-    .contact-info p {
+    .contact-info > p {
+      margin-bottom: 20px;
       color: var(--muted);
-      margin-bottom: 18px;
     }
 
     .contact-detail {
-      background: var(--light);
+      margin-top: 12px;
       padding: 15px;
       border-radius: 8px;
-      margin-top: 12px;
+      background: var(--light);
     }
 
     .contact-detail strong {
@@ -462,109 +470,120 @@
     }
 
     .contact-detail span {
-      color: var(--muted);
       overflow-wrap: anywhere;
+      color: var(--muted);
     }
 
     .contact-form {
-      padding: 26px;
-      border: 1px solid #e4e8eb;
+      padding: 25px;
+      border: 1px solid var(--border);
       border-radius: 10px;
+      background: #fff;
       box-shadow: var(--shadow);
     }
 
     .contact-form label {
       display: block;
-      font-weight: 700;
-      font-size: 14px;
       margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
+    .contact-form select,
+    .contact-form textarea {
       display: block;
       width: 100%;
-      padding: 12px;
       margin-bottom: 16px;
+      padding: 12px;
       border: 1px solid #d5dce2;
-      border-radius: 5px;
-      background: white;
-      color: #1d2830;
+      border-radius: 6px;
+      background: #fff;
+      color: var(--text);
     }
 
     .contact-form textarea {
-      min-height: 120px;
+      min-height: 115px;
       resize: vertical;
     }
 
     .contact-form input:focus,
-    .contact-form textarea:focus,
-    .contact-form select:focus {
+    .contact-form select:focus,
+    .contact-form textarea:focus {
       outline: 2px solid var(--gold);
       outline-offset: 1px;
     }
 
-    .form-message {
-      font-size: 13px;
+    .form-note {
+      margin-top: 12px;
       color: var(--muted);
-      margin-top: 10px;
+      font-size: 12px;
     }
 
-    /* Footer */
+    /* FOOTER */
 
-    footer {
-      background: #0a1117;
+    .site-footer {
+      padding: 25px 0;
       color: #d2d9de;
-      padding: 26px 0;
+      background: #0a1117;
     }
 
     .footer-row {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       font-size: 13px;
     }
 
-    footer a {
+    .site-footer a {
       color: var(--gold);
     }
 
-    /* Chatbot */
+    /* CHATBOT BUTTON */
 
     .chat-launcher {
       position: fixed;
       right: 22px;
       bottom: 22px;
-      z-index: 30;
-      width: 62px;
-      height: 62px;
+      z-index: 1000;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: none;
       border-radius: 50%;
       background: var(--gold);
       color: var(--navy);
-      font-size: 27px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      font-size: 26px;
+      box-shadow: 0 6px 22px rgba(0,0,0,.25);
       cursor: pointer;
     }
 
+    .chat-launcher:hover {
+      transform: translateY(-2px);
+    }
+
+    /* CHATBOT WINDOW: fixed layout, no blank top space */
+
     .chat-panel {
       position: fixed;
-      z-index: 31;
       right: 22px;
       bottom: 96px;
-      width: min(365px, calc(100vw - 28px));
-      height: 450px;
+      z-index: 1001;
+      width: 360px;
+      height: 480px;
+      max-width: calc(100vw - 28px);
       max-height: calc(100dvh - 120px);
       display: none;
       flex-direction: column;
       overflow: hidden;
-      border-radius: 13px;
-      background: white;
-      box-shadow: 0 12px 45px rgba(0,0,0,.25);
-      border: 1px solid #e1e6e9;
+      border: 1px solid #dce3e8;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
     }
 
     .chat-panel.open {
@@ -572,106 +591,162 @@
     }
 
     .chat-header {
-      padding: 17px;
+      flex: 0 0 auto;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 12px;
+      padding: 13px 17px;
+      color: #fff;
       background: var(--navy);
-      color: white;
     }
 
-    .chat-header small {
+    .chat-title {
+      min-width: 0;
+    }
+
+    .chat-title strong {
       display: block;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .chat-title small {
+      display: block;
+      margin-top: 3px;
       color: #cbd5dc;
       font-size: 12px;
+      line-height: 1.35;
     }
 
     .chat-close {
-      border: 0;
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 5px;
       background: transparent;
-      color: white;
-      font-size: 25px;
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
       cursor: pointer;
     }
 
+    .chat-close:hover {
+      background: rgba(255,255,255,.12);
+    }
+
     .chat-messages {
-      flex: 1;
+      flex: 1 1 0;
+      min-height: 0;
       overflow-y: auto;
-      padding: 15px;
+      overscroll-behavior: contain;
+      padding: 14px;
       background: #f7f9fa;
     }
 
     .message {
-      max-width: 88%;
-      padding: 10px 12px;
-      border-radius: 10px;
+      display: block;
+      width: fit-content;
+      max-width: 90%;
       margin-bottom: 11px;
+      padding: 10px 12px;
+      border-radius: 12px;
       font-size: 14px;
-      overflow-wrap: anywhere;
+      line-height: 1.5;
       white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
 
     .bot-message {
+      margin-right: auto;
+      border-bottom-left-radius: 3px;
       background: #e7edf1;
       color: #17232c;
-      border-bottom-left-radius: 3px;
     }
 
     .user-message {
-      background: var(--navy);
-      color: white;
       margin-left: auto;
       border-bottom-right-radius: 3px;
+      background: var(--navy);
+      color: #fff;
     }
 
     .quick-questions {
-      padding: 9px 12px;
+      flex: 0 0 auto;
       display: flex;
-      gap: 7px;
       flex-wrap: wrap;
-      border-top: 1px solid #e3e7ea;
+      gap: 7px;
+      padding: 10px;
+      border-top: 1px solid var(--border);
+      background: #fff;
     }
 
     .quick-questions button {
-      background: white;
-      border: 1px solid #d8dfe4;
-      border-radius: 20px;
-      padding: 6px 10px;
+      padding: 7px 11px;
+      border: 1px solid #d5dfe6;
+      border-radius: 22px;
+      background: #fff;
+      color: #26333d;
       font-size: 12px;
+      line-height: 1.4;
       cursor: pointer;
     }
 
     .quick-questions button:hover {
       border-color: var(--gold);
+      background: #fff8e8;
     }
 
     .chat-form {
+      flex: 0 0 auto;
       display: flex;
-      padding: 10px;
+      align-items: center;
       gap: 8px;
-      border-top: 1px solid #e3e7ea;
+      padding: 10px;
+      border-top: 1px solid var(--border);
+      background: #fff;
     }
 
     .chat-form input {
-      flex: 1;
+      flex: 1 1 0;
+      width: 0;
       min-width: 0;
-      padding: 10px;
+      height: 43px;
+      padding: 10px 11px;
       border: 1px solid #d5dce2;
-      border-radius: 7px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .chat-form input:focus {
+      outline: 2px solid var(--gold);
+      outline-offset: 1px;
     }
 
     .chat-form button {
+      flex: 0 0 auto;
+      min-width: 66px;
+      height: 43px;
+      padding: 0 14px;
       border: none;
+      border-radius: 8px;
       background: var(--gold);
       color: var(--navy);
-      border-radius: 7px;
-      padding: 0 15px;
       font-weight: 800;
       cursor: pointer;
     }
 
-    /* Mobile layout */
+    .chat-form button:hover {
+      background: #edaf31;
+    }
+
+    /* TABLET */
 
     @media (max-width: 850px) {
       .nav-links {
@@ -689,13 +764,19 @@
 
       .service-grid,
       .project-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+
+    /* MOBILE */
 
     @media (max-width: 650px) {
       .navbar {
         min-height: 70px;
+      }
+
+      .logo {
+        font-size: 19px;
       }
 
       .menu-toggle {
@@ -703,32 +784,32 @@
       }
 
       .nav-links {
-        display: none;
         position: absolute;
         top: 70px;
         left: 0;
-        width: 100%;
-        padding: 18px 5%;
-        background: #101820;
+        right: 0;
+        display: none;
         align-items: stretch;
         flex-direction: column;
         gap: 0;
+        padding: 12px 5% 18px;
+        background: var(--navy);
       }
 
       .nav-links.open {
         display: flex;
       }
 
-      .nav-links li a {
+      .nav-links a {
         display: block;
-        padding: 11px 0;
+        padding: 10px 0;
         font-size: 15px;
       }
 
-      .nav-cta {
-        display: inline-block !important;
+      .nav-links .nav-cta {
+        margin-top: 7px;
+        padding: 10px 14px;
         text-align: center;
-        margin-top: 6px;
       }
 
       .hero-content {
@@ -739,13 +820,13 @@
         letter-spacing: -.5px;
       }
 
+      .section {
+        padding: 60px 0;
+      }
+
       .service-grid,
       .project-grid {
         grid-template-columns: 1fr;
-      }
-
-      section:not(.hero) {
-        padding: 60px 0;
       }
 
       .about-visual {
@@ -762,12 +843,42 @@
       }
 
       .chat-panel {
-        right: 14px;
-        bottom: 88px;
+        right: 10px;
+        bottom: 82px;
+        width: calc(100vw - 20px);
+        height: min(500px, calc(100dvh - 105px));
+        max-height: calc(100dvh - 105px);
+      }
+
+      .chat-header {
+        min-height: 66px;
+        padding: 11px 14px;
+      }
+
+      .chat-title strong {
+        font-size: 16px;
+      }
+
+      .quick-questions {
+        gap: 6px;
+        padding: 9px;
+      }
+
+      .quick-questions button {
+        padding: 7px 9px;
+        font-size: 12px;
+      }
+
+      .chat-form {
+        gap: 7px;
+        padding: 9px;
+      }
+
+      .chat-form button {
+        min-width: 58px;
+        padding: 0 11px;
       }
     }
-
-    /* Respect visitors who prefer reduced motion */
 
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -783,8 +894,8 @@
 
 <body>
 
-  <!-- Navigation -->
-  <header>
+  <!-- NAVIGATION -->
+  <header class="site-header">
     <div class="container navbar">
       <a class="logo" href="#home">RAM <span>CONSTRUCTION</span></a>
 
@@ -799,7 +910,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+          <li><a class="nav-cta" href="#contact">Get a Quote</a></li>
         </ul>
       </nav>
     </div>
@@ -807,9 +918,8 @@
 
   <main>
 
-    <!-- Home: background video -->
-    <section class="hero" id="home" aria-label="Welcome to RAM Construction">
-
+    <!-- HERO VIDEO -->
+    <section class="hero" id="home">
       <video
         class="hero-video"
         autoplay
@@ -826,30 +936,29 @@
 
       <div class="hero-content">
         <div class="eyebrow">Quality • Trust • Excellence</div>
-
         <h1>Building Your Dreams.<br>
           <span>Creating Your Future.</span>
         </h1>
 
         <p>
-          From planning and construction to renovation, we help turn your
-          vision into a space you can be proud of. Let's build something
+          From planning and construction to renovation, we help transform
+          your ideas into spaces you can be proud of. Let's build something
           remarkable together.
         </p>
 
-        <div class="buttons">
+        <div class="button-row">
           <a href="#contact" class="btn btn-gold">Discuss Your Project →</a>
           <a href="#services" class="btn btn-outline">Explore Services</a>
         </div>
 
-        <div class="video-note">
+        <div class="hero-note">
           RAM Construction — building with purpose.
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
+    <!-- ABOUT -->
+    <section class="section" id="about">
       <div class="container about-grid">
         <div class="about-visual">
           <h3>Strong Foundations.<br>Lasting Impressions.</h3>
@@ -860,16 +969,15 @@
           <h2>Your Vision Deserves Quality Construction</h2>
 
           <p>
-            Every successful building starts with a clear vision and careful
-            planning. RAM Construction aims to deliver thoughtful construction
-            solutions with a focus on quality, communication and attention
-            to detail.
+            Every successful building begins with a clear vision and
+            thoughtful planning. RAM Construction aims to provide
+            construction solutions with a focus on quality, communication
+            and attention to detail.
           </p>
 
           <p>
-            Whether you are planning a new home, a commercial space or a
-            renovation, we want to help you move from idea to execution
-            with confidence.
+            Whether you're planning a new home, a commercial space or a
+            renovation, let's discuss your requirements and the next steps.
           </p>
 
           <ul class="check-list">
@@ -884,8 +992,8 @@
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services">
+    <!-- SERVICES -->
+    <section class="section services-section" id="services">
       <div class="container">
         <div class="section-heading">
           <div class="eyebrow">What We Do</div>
@@ -898,70 +1006,53 @@
 
         <div class="service-grid">
           <article class="service-card">
-            <div class="service-icon" aria-hidden="true">🏠</div>
+            <div class="service-icon">🏠</div>
             <h3>Residential Construction</h3>
-            <p>
-              Plan and build homes that reflect your needs, lifestyle and
-              design preferences.
-            </p>
+            <p>Plan and build homes that reflect your needs, lifestyle and design preferences.</p>
           </article>
 
           <article class="service-card">
-            <div class="service-icon" aria-hidden="true">🏢</div>
+            <div class="service-icon">🏢</div>
             <h3>Commercial Buildings</h3>
-            <p>
-              Construction solutions for offices, business spaces and
-              commercial properties.
-            </p>
+            <p>Construction solutions for offices, business spaces and commercial properties.</p>
           </article>
 
           <article class="service-card">
-            <div class="service-icon" aria-hidden="true">🛠️</div>
+            <div class="service-icon">🛠️</div>
             <h3>Renovation</h3>
-            <p>
-              Refresh, improve and adapt existing spaces to better suit
-              your requirements.
-            </p>
+            <p>Refresh and improve existing spaces to better suit your requirements.</p>
           </article>
 
           <article class="service-card">
-            <div class="service-icon" aria-hidden="true">📐</div>
+            <div class="service-icon">📐</div>
             <h3>Planning and Consultation</h3>
-            <p>
-              Discuss your project scope, requirements, timeline and
-              next steps before construction begins.
-            </p>
+            <p>Discuss project scope, requirements, budget and next steps before work begins.</p>
           </article>
 
           <article class="service-card">
-            <div class="service-icon" aria-hidden="true">🧱</div>
+            <div class="service-icon">🧱</div>
             <h3>Structural Work</h3>
-            <p>
-              Construction work planned around suitable specifications,
-              safety requirements and professional guidance.
-            </p>
+            <p>Construction planning around appropriate specifications and safety requirements.</p>
           </article>
 
           <article class="service-card">
-            <div class="service-icon" aria-hidden="true">✨</div>
+            <div class="service-icon">✨</div>
             <h3>Interior Improvements</h3>
-            <p>
-              Explore interior finishing and improvements to make your
-              space functional and welcoming.
-            </p>
+            <p>Explore finishing and improvement options for functional, welcoming spaces.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
       <div class="container">
         <div class="section-heading">
           <div class="eyebrow">Our Work</div>
-          <h2>Explore Construction Possibilities</h2>
+          <h2>Construction Inspiration</h2>
           <p>
-            Get inspired by residential, commercial and renovation concepts.
+            Explore residential, commercial and renovation concepts for
+            your next project.
           </p>
         </div>
 
@@ -969,7 +1060,7 @@
           <article class="project-card">
             <img
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80"
-              alt="Contemporary residential house"
+              alt="Contemporary residential home"
               loading="lazy">
             <div class="project-copy">
               <h3>Modern Residential Homes</h3>
@@ -984,7 +1075,7 @@
               loading="lazy">
             <div class="project-copy">
               <h3>Commercial Spaces</h3>
-              <p>Building concepts for modern business environments.</p>
+              <p>Concepts for modern business environments.</p>
             </div>
           </article>
 
@@ -1000,15 +1091,16 @@
           </article>
         </div>
 
-        <p class="project-disclaimer">
-          These are illustrative reference images, not verified RAM Construction projects.
-          Replace them with your actual completed projects when available.
+        <p class="project-note">
+          Reference images are illustrative concepts, not verified completed
+          RAM Construction projects. Replace them with your actual project
+          photos when available.
         </p>
       </div>
     </section>
 
-    <!-- Call to action -->
-    <section class="cta">
+    <!-- CALL TO ACTION -->
+    <section class="section cta-section">
       <div class="container">
         <h2>Planning Your Next Construction Project?</h2>
         <p>
@@ -1019,27 +1111,23 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
+    <!-- CONTACT -->
+    <section class="section" id="contact">
       <div class="container">
         <div class="section-heading">
           <div class="eyebrow">Get in Touch</div>
           <h2>Let's Build Something Together</h2>
-          <p>
-            Share your project requirements and we'll help you identify
-            the next step.
-          </p>
+          <p>Share your project requirements to start an enquiry.</p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-info">
             <h3>Contact RAM Construction</h3>
             <p>
-              Interested in building a new home, developing a commercial
-              space or renovating a property? Send us your enquiry.
+              Planning a home, commercial building or renovation?
+              Send us your enquiry to discuss your project.
             </p>
 
-            <!-- Replace the placeholder contact details below -->
             <div class="contact-detail">
               <strong>✉ Email</strong>
               <span>YOUR_EMAIL@example.com</span>
@@ -1079,17 +1167,17 @@
               <option>Other</option>
             </select>
 
-            <label for="projectMessage">Tell Us About Your Project</label>
+            <label for="projectMessage">Project Details</label>
             <textarea id="projectMessage" name="message"
-              placeholder="Describe your requirements..." required></textarea>
+              placeholder="Describe your project..." required></textarea>
 
             <button type="submit" class="btn btn-gold">
               Prepare Email Enquiry →
             </button>
 
-            <p class="form-message" id="formMessage">
-              This form prepares an email in your email application.
-              It does not store or submit enquiries to a server.
+            <p class="form-note" id="formNote">
+              This form opens an email draft. It does not save submissions
+              to a server.
             </p>
           </form>
         </div>
@@ -1097,38 +1185,49 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="container footer-row">
       <p>© <span id="currentYear"></span> RAM Construction. All rights reserved.</p>
       <a href="#home">Back to top ↑</a>
     </div>
   </footer>
 
-  <!-- Chatbot -->
-  <button class="chat-launcher" id="chatLauncher"
-    type="button" aria-label="Open construction assistant"
-    aria-expanded="false" aria-controls="chatPanel">💬</button>
+  <!-- CHATBOT BUTTON -->
+  <button
+    class="chat-launcher"
+    id="chatLauncher"
+    type="button"
+    aria-label="Open RAM Construction assistant"
+    aria-controls="chatPanel"
+    aria-expanded="false">
+    💬
+  </button>
 
-  <section class="chat-panel" id="chatPanel"
-    role="dialog" aria-label="RAM Construction assistant"
+  <!-- CHATBOT WINDOW -->
+  <section
+    class="chat-panel"
+    id="chatPanel"
+    role="dialog"
+    aria-label="RAM Construction assistant"
     aria-hidden="true">
+
     <div class="chat-header">
-      <div>
+      <div class="chat-title">
         <strong>RAM Assistant 🏗️</strong>
         <small>Construction enquiry assistant</small>
       </div>
-      <button class="chat-close" id="chatClose"
-        type="button" aria-label="Close chatbot">×</button>
+      <button
+        class="chat-close"
+        id="chatClose"
+        type="button"
+        aria-label="Close chatbot">×</button>
     </div>
 
-    <div class="chat-messages" id="chatMessages"
-      aria-live="polite">
-      <div class="message bot-message">
-        Hello! Welcome to RAM Construction. 👋
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <div class="message bot-message">Hello! Welcome to RAM Construction. 👋
 
-        I can help you explore our services or prepare an enquiry. What would you like to know?
-      </div>
+I can help you explore our services, understand the enquiry process, or prepare a quote request. What would you like to know?</div>
     </div>
 
     <div class="quick-questions">
@@ -1139,21 +1238,27 @@
     </div>
 
     <form class="chat-form" id="chatForm">
-      <input id="chatInput" type="text"
-        placeholder="Ask a question..." aria-label="Your question"
-        maxlength="500" required>
+      <input
+        id="chatInput"
+        type="text"
+        placeholder="Ask a question..."
+        aria-label="Type your question"
+        maxlength="500"
+        required>
       <button type="submit">Send</button>
     </form>
   </section>
 
   <script>
-    // Mobile navigation
+    "use strict";
+
+    // MOBILE NAVIGATION
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
     menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
     });
 
     navLinks.querySelectorAll("a").forEach(function (link) {
@@ -1163,51 +1268,69 @@
       });
     });
 
-    // Current year
+    // FOOTER YEAR
     document.getElementById("currentYear").textContent =
       new Date().getFullYear();
 
-    // Contact form: opens the visitor's email application.
-    // Replace this placeholder with the company's real email.
-    const COMPANY_EMAIL = "YOUR_EMAIL@example.com";
-    const contactForm = document.getElementById("contactForm");
-    const formMessage = document.getElementById("formMessage");
+    // BACKGROUND VIDEO
+    const heroVideo = document.querySelector(".hero-video");
 
-    contactForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+    function startHeroVideo() {
+      if (!heroVideo) return;
 
-      if (COMPANY_EMAIL === "YOUR_EMAIL@example.com") {
-        formMessage.textContent =
-          "Please update COMPANY_EMAIL in the HTML script with your real business email before using this form.";
-        return;
+      const attempt = heroVideo.play();
+
+      if (attempt && typeof attempt.catch === "function") {
+        attempt.catch(function () {
+          console.info(
+            "Video autoplay was blocked or the video could not be loaded."
+          );
+        });
       }
+    }
 
-      const formData = new FormData(contactForm);
-      const name = formData.get("name");
-      const email = formData.get("email");
-      const phone = formData.get("phone");
-      const projectType = formData.get("projectType");
-      const message = formData.get("message");
+    heroVideo.addEventListener("canplay", startHeroVideo);
+    window.addEventListener("load", startHeroVideo);
 
-      const subject = encodeURIComponent(
-        "Construction Enquiry - " + name
-      );
+    // CONTACT FORM
+    // Replace with the company's real email address.
+    const COMPANY_EMAIL = "YOUR_EMAIL@example.com";
 
-      const body = encodeURIComponent(
-        "New construction enquiry\n\n" +
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n" +
-        "Phone: " + (phone || "Not provided") + "\n" +
-        "Project type: " + projectType + "\n\n" +
-        "Project details:\n" + message
-      );
+    document.getElementById("contactForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
 
-      window.location.href =
-        "mailto:" + COMPANY_EMAIL +
-        "?subject=" + subject + "&body=" + body;
-    });
+        const note = document.getElementById("formNote");
 
-    // Chatbot controls
+        if (COMPANY_EMAIL === "YOUR_EMAIL@example.com") {
+          note.textContent =
+            "Please replace COMPANY_EMAIL in the script with the real company email before using this form.";
+          return;
+        }
+
+        const data = new FormData(this);
+
+        const subject = encodeURIComponent(
+          "Construction enquiry from " + data.get("name")
+        );
+
+        const body = encodeURIComponent(
+          "Construction enquiry\n\n" +
+          "Name: " + data.get("name") + "\n" +
+          "Email: " + data.get("email") + "\n" +
+          "Phone: " + (data.get("phone") || "Not provided") + "\n" +
+          "Project type: " + data.get("projectType") + "\n\n" +
+          "Details:\n" + data.get("message")
+        );
+
+        window.location.href =
+          "mailto:" + COMPANY_EMAIL +
+          "?subject=" + subject + "&body=" + body;
+      }
+    );
+
+    // CHATBOT ELEMENTS
     const chatLauncher = document.getElementById("chatLauncher");
     const chatPanel = document.getElementById("chatPanel");
     const chatClose = document.getElementById("chatClose");
@@ -1215,6 +1338,7 @@
     const chatForm = document.getElementById("chatForm");
     const chatInput = document.getElementById("chatInput");
 
+    // OPEN / CLOSE CHAT
     function setChatOpen(open) {
       chatPanel.classList.toggle("open", open);
       chatPanel.setAttribute("aria-hidden", String(!open));
@@ -1234,109 +1358,123 @@
       chatLauncher.focus();
     });
 
-    function addMessage(text, type) {
+    // DISPLAY CHAT MESSAGES SAFELY
+    function addMessage(text, sender) {
       const message = document.createElement("div");
-      message.className = "message " +
-        (type === "user" ? "user-message" : "bot-message");
+
+      message.classList.add("message");
+      message.classList.add(
+        sender === "user" ? "user-message" : "bot-message"
+      );
+
       message.textContent = text;
       chatMessages.appendChild(message);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
+    // PREDEFINED CHATBOT ANSWERS
     function getBotReply(question) {
       const q = question.toLowerCase();
 
-      if (q.includes("service") || q.includes("what do you do")) {
-        return "RAM Construction can assist with residential construction, commercial buildings, renovation, planning and consultation. Tell us what kind of project you have in mind.";
+      if (
+        q.includes("service") ||
+        q.includes("what do you do")
+      ) {
+        return "RAM Construction offers information about residential construction, commercial buildings, renovation, and project consultation. Which service are you interested in?";
       }
 
-      if (q.includes("quote") || q.includes("cost") ||
-          q.includes("price") || q.includes("budget")) {
-        return "Construction costs depend on the location, built-up area, design, materials and scope of work. Please use the contact form to describe your project so you can request a quote.";
+      if (
+        q.includes("quote") ||
+        q.includes("cost") ||
+        q.includes("price") ||
+        q.includes("budget")
+      ) {
+        return "Construction costs depend on the location, built-up area, design, materials, and scope of work. Please complete the Contact form with your project details to prepare an enquiry.";
       }
 
-      if (q.includes("project") || q.includes("portfolio") ||
-          q.includes("work")) {
-        return "Please explore the Projects section for illustrative construction concepts. Replace these reference examples with verified RAM Construction projects as they become available.";
+      if (
+        q.includes("project") ||
+        q.includes("portfolio") ||
+        q.includes("work") ||
+        q.includes("photo")
+      ) {
+        return "Please explore the Projects section for illustrative construction concepts. These are reference images, not verified completed RAM Construction projects.";
       }
 
-      if (q.includes("contact") || q.includes("phone") ||
-          q.includes("email") || q.includes("reach")) {
-        return "Please visit the Contact section for the company's contact details and enquiry form. The business email and phone placeholders must be replaced with verified contact information.";
+      if (
+        q.includes("contact") ||
+        q.includes("phone") ||
+        q.includes("email") ||
+        q.includes("reach")
+      ) {
+        return "Please visit the Contact section for the company's contact details and enquiry form. The placeholder email and phone number must be replaced with verified business details.";
       }
 
-      if (q.includes("time") || q.includes("duration") ||
-          q.includes("how long")) {
-        return "Project duration depends on the size, design, approvals, weather and availability of materials. Share your project details through the contact form to discuss a suitable timeline.";
+      if (
+        q.includes("time") ||
+        q.includes("duration") ||
+        q.includes("how long")
+      ) {
+        return "Project timelines depend on size, design, approvals, weather, and material availability. Share your project requirements through the Contact section to discuss a suitable timeline.";
       }
 
-      if (q.includes("location") || q.includes("where")) {
-        return "Please check the Location field in the Contact section. The company location should be added there before the website is published.";
+      if (
+        q.includes("location") ||
+        q.includes("where")
+      ) {
+        return "Please check the Location field in the Contact section for the company's service area.";
       }
 
-      if (q.includes("hello") || q.includes("hi") ||
-          q.includes("hey")) {
-        return "Hello! 👋 Welcome to RAM Construction. Are you planning a new home, a commercial building or a renovation?";
+      if (
+        q.includes("hello") ||
+        q.includes("hi") ||
+        q.includes("hey")
+      ) {
+        return "Hello! 👋 Welcome to RAM Construction. Are you planning a new home, a commercial building, or a renovation?";
       }
 
       if (q.includes("thank")) {
-        return "You're welcome! 😊 Let us know if you'd like help preparing a construction enquiry.";
+        return "You're welcome! 😊 Feel free to ask about our services or prepare an enquiry.";
       }
 
-      return "Thanks for your question! I can provide general information about services, project enquiries and quotes. For a specific answer, please use the Contact section to reach RAM Construction.";
+      return "Thanks for your question! I can answer general questions about construction services, project enquiries, and quotes. For a specific project, please use the Contact section.";
     }
 
     function sendChatMessage(question) {
       const cleaned = question.trim();
+
       if (!cleaned) return;
 
       addMessage(cleaned, "user");
       addMessage(getBotReply(cleaned), "bot");
     }
 
+    // SEND MESSAGE WITH ENTER OR SEND BUTTON
     chatForm.addEventListener("submit", function (event) {
       event.preventDefault();
+
       sendChatMessage(chatInput.value);
       chatInput.value = "";
       chatInput.focus();
     });
 
-    document.querySelectorAll("[data-question]").forEach(function (button) {
-      button.addEventListener("click", function () {
-        const questions = {
-          services: "What services do you offer?",
-          quote: "How can I get a construction quote?",
-          projects: "Can I see your projects?",
-          contact: "How can I contact you?"
-        };
+    // QUICK QUESTIONS
+    const quickQuestions = {
+      services: "What services do you offer?",
+      quote: "How can I get a construction quote?",
+      projects: "Can I see your projects?",
+      contact: "How can I contact you?"
+    };
 
-        sendChatMessage(questions[button.dataset.question]);
-      });
-    });
-
-    // Attempt to start the muted background video.
-    // Some browsers may delay playback until the page is ready.
-    const heroVideo = document.querySelector(".hero-video");
-
-    function tryPlayHeroVideo() {
-      if (!heroVideo) return;
-
-      const playAttempt = heroVideo.play();
-
-      if (playAttempt && typeof playAttempt.catch === "function") {
-        playAttempt.catch(function () {
-          // Video controls remain hidden for the background design.
-          // The user can still view the page if playback is blocked.
-          console.info(
-            "Background video autoplay was blocked or the video could not load."
+    document.querySelectorAll("[data-question]").forEach(
+      function (button) {
+        button.addEventListener("click", function () {
+          sendChatMessage(
+            quickQuestions[button.dataset.question]
           );
         });
       }
-    }
-
-    heroVideo.addEventListener("canplay", tryPlayHeroVideo);
-    window.addEventListener("load", tryPlayHeroVideo);
+    );
   </script>
-
 </body>
 </html>
