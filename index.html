@@ -2,1479 +2,601 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101820">
-  <meta name="description" content="RAM Construction — residential construction, commercial buildings, renovation and project consultation.">
-  <title>RAM Construction | Building Your Dreams</title>
-
-  <style>
-    :root {
-      --navy: #101820;
-      --navy-light: #1c2b36;
-      --gold: #f5b942;
-      --white: #ffffff;
-      --text: #24313b;
-      --muted: #667581;
-      --light: #f5f7f9;
-      --border: #e0e6eb;
-      --shadow: 0 12px 35px rgba(0,0,0,.12);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      background: #fff;
-    }
-
-    body, button, input, textarea, select {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    button, input, textarea, select {
-      font-size: 14px;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(1150px, 90%);
-      margin-inline: auto;
-    }
-
-    /* NAVIGATION */
-
-    .site-header {
-      position: absolute;
-      inset: 0 0 auto;
-      z-index: 20;
-      background: rgba(12, 20, 27, .88);
-      border-bottom: 1px solid rgba(255,255,255,.12);
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      color: #fff;
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: .5px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      transition: color .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .nav-links .nav-cta {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 5px;
-      color: var(--navy);
-      background: var(--gold);
-    }
-
-    .menu-toggle {
-      display: none;
-      padding: 8px 12px;
-      border: 1px solid #7c8790;
-      border-radius: 5px;
-      color: #fff;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    /* VIDEO HERO */
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      isolation: isolate;
-      color: #fff;
-      background: #17242d;
-    }
-
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(
-        90deg,
-        rgba(7,15,22,.88),
-        rgba(7,15,22,.65) 52%,
-        rgba(7,15,22,.25)
-      );
-    }
-
-    .hero-content {
-      width: min(780px, 90%);
-      margin: 0 auto;
-      padding-top: 105px;
-      padding-bottom: 55px;
-    }
-
-    .eyebrow {
-      margin-bottom: 13px;
-      color: #d99716;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .hero .eyebrow {
-      color: var(--gold);
-    }
-
-    .hero h1 {
-      margin-bottom: 22px;
-      font-size: clamp(38px, 6vw, 74px);
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-    }
-
-    .hero h1 span {
-      color: var(--gold);
-    }
-
-    .hero p {
-      max-width: 620px;
-      margin-bottom: 28px;
-      color: #edf1f3;
-      font-size: clamp(16px, 2vw, 19px);
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 21px;
-      border: 2px solid transparent;
-      border-radius: 5px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .2s, background .2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-gold {
-      color: var(--navy);
-      background: var(--gold);
-    }
-
-    .btn-outline {
-      color: #fff;
-      border-color: rgba(255,255,255,.7);
-      background: transparent;
-    }
-
-    .hero-note {
-      margin-top: 22px;
-      color: rgba(255,255,255,.75);
-      font-size: 12px;
-    }
-
-    /* SHARED SECTIONS */
-
-    .section {
-      padding: 82px 0;
-    }
-
-    .section-heading {
-      max-width: 720px;
-      margin: 0 auto 40px;
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 13px;
-      color: var(--navy);
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.2;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 45px;
-    }
-
-    .about-visual {
-      min-height: 350px;
-      display: flex;
-      align-items: flex-end;
-      padding: 30px;
-      border-radius: 12px;
-      color: #fff;
-      background:
-        linear-gradient(0deg, rgba(7,15,22,.8), transparent),
-        url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85")
-        center/cover;
-      box-shadow: var(--shadow);
-    }
-
-    .about-visual h3 {
-      font-size: 29px;
-      line-height: 1.25;
-    }
-
-    .about-copy h2 {
-      margin-bottom: 17px;
-      color: var(--navy);
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.2;
-    }
-
-    .about-copy p {
-      margin-bottom: 14px;
-      color: var(--muted);
-    }
-
-    .check-list {
-      margin: 20px 0 25px;
-      list-style: none;
-    }
-
-    .check-list li {
-      margin: 10px 0;
-      font-weight: 600;
-    }
-
-    .check-list li::before {
-      content: "✓";
-      margin-right: 10px;
-      color: #16805d;
-      font-weight: 900;
-    }
-
-    /* SERVICES */
-
-    .services-section {
-      background: var(--light);
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .service-card {
-      padding: 27px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: #fff;
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 17px;
-      border-radius: 10px;
-      background: #fff3d8;
-      font-size: 26px;
-    }
-
-    .service-card h3 {
-      margin-bottom: 10px;
-      color: var(--navy);
-      font-size: 19px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* PROJECTS */
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .project-card {
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: #fff;
-    }
-
-    .project-card img {
-      display: block;
-      width: 100%;
-      height: 225px;
-      object-fit: cover;
-      background: #e8ecef;
-    }
-
-    .project-copy {
-      padding: 21px;
-    }
-
-    .project-copy h3 {
-      margin-bottom: 8px;
-      color: var(--navy);
-    }
-
-    .project-copy p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .project-note {
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-    }
-
-    /* CALL TO ACTION */
-
-    .cta-section {
-      color: #fff;
-      background: var(--navy);
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      margin-bottom: 15px;
-      font-size: clamp(29px, 4vw, 42px);
-      line-height: 1.2;
-    }
-
-    .cta-section p {
-      max-width: 650px;
-      margin: 0 auto 25px;
-      color: #d2dbe1;
-    }
-
-    /* CONTACT */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      align-items: start;
-      gap: 40px;
-    }
-
-    .contact-info h3 {
-      margin-bottom: 13px;
-      color: var(--navy);
-      font-size: 25px;
-    }
-
-    .contact-info > p {
-      margin-bottom: 20px;
-      color: var(--muted);
-    }
-
-    .contact-detail {
-      margin-top: 12px;
-      padding: 15px;
-      border-radius: 8px;
-      background: var(--light);
-    }
-
-    .contact-detail strong {
-      display: block;
-      color: var(--navy);
-    }
-
-    .contact-detail span {
-      overflow-wrap: anywhere;
-      color: var(--muted);
-    }
-
-    .contact-form {
-      padding: 25px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-form label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      display: block;
-      width: 100%;
-      margin-bottom: 16px;
-      padding: 12px;
-      border: 1px solid #d5dce2;
-      border-radius: 6px;
-      background: #fff;
-      color: var(--text);
-    }
-
-    .contact-form textarea {
-      min-height: 115px;
-      resize: vertical;
-    }
-
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
-      outline: 2px solid var(--gold);
-      outline-offset: 1px;
-    }
-
-    .form-note {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* FOOTER */
-
-    .site-footer {
-      padding: 25px 0;
-      color: #d2d9de;
-      background: #0a1117;
-    }
-
-    .footer-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 13px;
-    }
-
-    .site-footer a {
-      color: var(--gold);
-    }
-
-    /* CHATBOT BUTTON */
-
-    .chat-launcher {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 1000;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      border-radius: 50%;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 26px;
-      box-shadow: 0 6px 22px rgba(0,0,0,.25);
-      cursor: pointer;
-    }
-
-    .chat-launcher:hover {
-      transform: translateY(-2px);
-    }
-
-    /* CHATBOT WINDOW: fixed layout, no blank top space */
-
-    .chat-panel {
-      position: fixed;
-      right: 22px;
-      bottom: 96px;
-      z-index: 1001;
-      width: 360px;
-      height: 480px;
-      max-width: calc(100vw - 28px);
-      max-height: calc(100dvh - 120px);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid #dce3e8;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 12px 40px rgba(0,0,0,.25);
-    }
-
-    .chat-panel.open {
-      display: flex;
-    }
-
-    .chat-header {
-      flex: 0 0 auto;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 17px;
-      color: #fff;
-      background: var(--navy);
-    }
-
-    .chat-title {
-      min-width: 0;
-    }
-
-    .chat-title strong {
-      display: block;
-      font-size: 17px;
-      line-height: 1.35;
-    }
-
-    .chat-title small {
-      display: block;
-      margin-top: 3px;
-      color: #cbd5dc;
-      font-size: 12px;
-      line-height: 1.35;
-    }
-
-    .chat-close {
-      flex: 0 0 34px;
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border: none;
-      border-radius: 5px;
-      background: transparent;
-      color: #fff;
-      font-size: 26px;
-      line-height: 1;
-      cursor: pointer;
-    }
-
-    .chat-close:hover {
-      background: rgba(255,255,255,.12);
-    }
-
-    .chat-messages {
-      flex: 1 1 0;
-      min-height: 0;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      padding: 14px;
-      background: #f7f9fa;
-    }
-
-    .message {
-      display: block;
-      width: fit-content;
-      max-width: 90%;
-      margin-bottom: 11px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.5;
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-    }
-
-    .bot-message {
-      margin-right: auto;
-      border-bottom-left-radius: 3px;
-      background: #e7edf1;
-      color: #17232c;
-    }
-
-    .user-message {
-      margin-left: auto;
-      border-bottom-right-radius: 3px;
-      background: var(--navy);
-      color: #fff;
-    }
-
-    .quick-questions {
-      flex: 0 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      padding: 10px;
-      border-top: 1px solid var(--border);
-      background: #fff;
-    }
-
-    .quick-questions button {
-      padding: 7px 11px;
-      border: 1px solid #d5dfe6;
-      border-radius: 22px;
-      background: #fff;
-      color: #26333d;
-      font-size: 12px;
-      line-height: 1.4;
-      cursor: pointer;
-    }
-
-    .quick-questions button:hover {
-      border-color: var(--gold);
-      background: #fff8e8;
-    }
-
-    .chat-form {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px;
-      border-top: 1px solid var(--border);
-      background: #fff;
-    }
-
-    .chat-form input {
-      flex: 1 1 0;
-      width: 0;
-      min-width: 0;
-      height: 43px;
-      padding: 10px 11px;
-      border: 1px solid #d5dce2;
-      border-radius: 8px;
-      background: #fff;
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .chat-form input:focus {
-      outline: 2px solid var(--gold);
-      outline-offset: 1px;
-    }
-
-    .chat-form button {
-      flex: 0 0 auto;
-      min-width: 66px;
-      height: 43px;
-      padding: 0 14px;
-      border: none;
-      border-radius: 8px;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .chat-form button:hover {
-      background: #edaf31;
-    }
-
-    /* TABLET */
-
-    @media (max-width: 850px) {
-      .nav-links {
-        gap: 14px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-grid,
-      .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 650px) {
-      .navbar {
-        min-height: 70px;
-      }
-
-      .logo {
-        font-size: 19px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        display: none;
-        align-items: stretch;
-        flex-direction: column;
-        gap: 0;
-        padding: 12px 5% 18px;
-        background: var(--navy);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 10px 0;
-        font-size: 15px;
-      }
-
-      .nav-links .nav-cta {
-        margin-top: 7px;
-        padding: 10px 14px;
-        text-align: center;
-      }
-
-      .hero-content {
-        padding-top: 110px;
-      }
-
-      .hero h1 {
-        letter-spacing: -.5px;
-      }
-
-      .section {
-        padding: 60px 0;
-      }
-
-      .service-grid,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-visual {
-        min-height: 270px;
-      }
-
-      .contact-form {
-        padding: 18px;
-      }
-
-      .chat-launcher {
-        right: 14px;
-        bottom: 14px;
-      }
-
-      .chat-panel {
-        right: 10px;
-        bottom: 82px;
-        width: calc(100vw - 20px);
-        height: min(500px, calc(100dvh - 105px));
-        max-height: calc(100dvh - 105px);
-      }
-
-      .chat-header {
-        min-height: 66px;
-        padding: 11px 14px;
-      }
-
-      .chat-title strong {
-        font-size: 16px;
-      }
-
-      .quick-questions {
-        gap: 6px;
-        padding: 9px;
-      }
-
-      .quick-questions button {
-        padding: 7px 9px;
-        font-size: 12px;
-      }
-
-      .chat-form {
-        gap: 7px;
-        padding: 9px;
-      }
-
-      .chat-form button {
-        min-width: 58px;
-        padding: 0 11px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101010">
+<meta name="description" content="RAM Construction — residential, commercial and architectural construction solutions.">
+<title>RAM Construction | Built Beyond Expectations</title>
+
+<style>
+:root {
+  --bg:#101010;
+  --panel:#191919;
+  --gold:#e8b65b;
+  --white:#f7f5f0;
+  --muted:#aaa9a4;
+  --line:rgba(255,255,255,.13);
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+img,video{max-width:100%}
+.container{width:min(var(--max),90%);margin:auto}
+.gold{color:var(--gold)}
+.eyebrow{color:var(--gold);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+h1,h2,h3{font-weight:600;line-height:1.15}
+h2{font-size:clamp(30px,4vw,53px);letter-spacing:-1.4px}
+p{color:var(--muted)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:12px;padding:14px 21px;border:1px solid var(--gold);background:var(--gold);color:#17130b;font-weight:700;font-size:12px;transition:.25s}
+.btn:hover{background:transparent;color:var(--gold);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:white;border-color:rgba(255,255,255,.5)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.section{padding:100px 0}
+.section-top{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:38px}
+.section-top p{max-width:430px;font-size:14px}
+.section-title{max-width:670px}
+.section-title .eyebrow{margin-bottom:15px}
+.section-title h2{margin-bottom:16px}
+.section-title p{max-width:570px}
+
+/* Header */
+header{position:fixed;z-index:100;top:0;left:0;width:100%;background:rgba(16,16,16,.88);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:21px;font-weight:900;letter-spacing:1px;white-space:nowrap}
+.brand span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:25px;list-style:none}
+.nav-links a{font-size:12px;color:#e4e2dc;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links .nav-quote{padding:11px 16px;background:var(--gold);color:#17130b;font-weight:700}
+.menu-toggle{display:none;padding:8px 12px;color:white;border:1px solid var(--line);background:transparent}
+
+/* Cinematic hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:#171717;isolation:isolate}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,8,8,.92),rgba(8,8,8,.62) 50%,rgba(8,8,8,.16)),linear-gradient(0deg,rgba(8,8,8,.65),transparent 45%)}
+.hero-content{width:min(var(--max),90%);margin:auto;padding-top:110px;padding-bottom:75px}
+.hero .eyebrow{margin-bottom:25px}
+.hero h1{max-width:950px;font-size:clamp(45px,8.5vw,108px);letter-spacing:-4px;line-height:.99;margin-bottom:25px}
+.hero h1 span{color:var(--gold)}
+.hero-copy{max-width:510px;font-size:16px;margin-bottom:30px;color:#e0dfdb}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-bottom{position:absolute;left:5%;right:5%;bottom:25px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.hero-bottom span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#ddd}
+.scroll-mark{display:flex;align-items:center;gap:10px}
+.scroll-mark i{width:42px;height:1px;background:var(--gold)}
+
+/* Intro strip */
+.intro-strip{border-bottom:1px solid var(--line);border-top:1px solid var(--line);background:#151515}
+.strip-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.strip-item{padding:27px 24px;border-right:1px solid var(--line)}
+.strip-item:first-child{padding-left:0}
+.strip-item:last-child{border:0}
+.strip-item strong{display:block;font-size:14px;margin-bottom:5px}
+.strip-item span{font-size:12px;color:var(--muted)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.about-image{position:relative;min-height:480px;overflow:hidden;background:#242424}
+.about-image img{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;transition:transform .7s}
+.about-image:hover img{transform:scale(1.04)}
+.image-label{position:absolute;bottom:20px;left:20px;padding:12px 15px;background:rgba(16,16,16,.86);font-size:11px;letter-spacing:1px}
+.about-copy .eyebrow{margin-bottom:18px}
+.about-copy h2{margin-bottom:23px}
+.about-copy>p{font-size:14px;margin-bottom:17px}
+.feature-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 30px}
+.feature-list div{font-size:13px;color:#e7e5df}
+.feature-list span{color:var(--gold);margin-right:8px}
+
+/* Four-video gallery */
+.videos-section{background:#171717}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}
+.video-card{min-width:0}
+.video-frame{position:relative;aspect-ratio:16/10;background:#262626;overflow:hidden}
+.video-frame video{display:block;width:100%;height:100%;object-fit:cover;background:#252525}
+.video-caption{padding:16px 0 4px}
+.video-caption span{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.video-caption h3{font-size:19px;margin:7px 0}
+.video-caption p{font-size:12px}
+.video-help{font-size:12px;margin-top:24px}
+
+/* Services */
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.service-card{padding:30px;background:var(--bg);min-height:220px;transition:background .25s}
+.service-card:hover{background:#1d1d1b}
+.service-number{font-size:12px;color:var(--gold);letter-spacing:2px}
+.service-card h3{font-size:20px;margin:30px 0 12px}
+.service-card p{font-size:13px}
+
+/* Banner */
+.feature-banner{position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden;background:#222}
+.feature-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.46}
+.feature-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#101010,rgba(16,16,16,.72) 55%,rgba(16,16,16,.12))}
+.feature-banner-content{position:relative;z-index:1;padding:65px 0;max-width:690px}
+.feature-banner h2{font-size:clamp(34px,5vw,59px);margin:18px 0}
+.feature-banner p{max-width:520px;margin-bottom:25px}
+
+/* Projects */
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card{background:var(--panel);overflow:hidden}
+.project-image{overflow:hidden}
+.project-card img{display:block;width:100%;height:260px;object-fit:cover;transition:transform .6s}
+.project-card:hover img{transform:scale(1.04)}
+.project-info{padding:21px}
+.project-info span{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.project-info h3{font-size:19px;margin:8px 0}
+.project-info p{font-size:12px}
+.disclaimer{font-size:11px;margin-top:22px}
+
+/* CTA */
+.cta{background:var(--gold);color:#17130b;padding:70px 0}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.cta h2{max-width:650px;font-size:clamp(31px,4vw,48px)}
+.cta p{color:#40351f;margin-top:12px;font-size:14px}
+.cta .btn{background:#17130b;color:white;border-color:#17130b;white-space:nowrap}
+.cta .btn:hover{background:transparent;color:#17130b}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.contact-info h2{margin:17px 0}
+.contact-info>p{font-size:14px;margin-bottom:24px}
+.contact-detail{padding:15px 0;border-top:1px solid var(--line)}
+.contact-detail strong{display:block;font-size:12px;color:var(--gold);margin-bottom:4px}
+.contact-detail span{font-size:14px;overflow-wrap:anywhere}
+.contact-form{padding:27px;background:#191919;border:1px solid var(--line)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.contact-form label{display:block;font-size:12px;margin-bottom:7px;color:#e7e5df}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:13px;margin-bottom:17px;border:1px solid #3c3c3a;background:#121212;color:white}
+.contact-form textarea{min-height:120px;resize:vertical}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:1px solid var(--gold)}
+.form-note{font-size:11px;margin-top:13px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:26px 0}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.footer-row p,.footer-row a{font-size:11px}
+.footer-row a{color:var(--gold)}
+
+/* Chatbot */
+.chat-launcher{position:fixed;right:22px;bottom:22px;z-index:1000;width:60px;height:60px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:var(--gold);color:#17130b;font-size:26px;box-shadow:0 8px 28px #0007}
+.chat-panel{position:fixed;right:22px;bottom:96px;z-index:1001;width:365px;height:490px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 115px);display:none;flex-direction:column;overflow:hidden;border:1px solid #dedede;background:#fff;color:#222;box-shadow:0 15px 55px #0008}
+.chat-panel.open{display:flex}
+.chat-header{flex:0 0 72px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;background:#101820;color:white}
+.chat-title{min-width:0}
+.chat-title strong{display:block;font-size:16px;line-height:1.4}
+.chat-title small{display:block;font-size:11px;color:#c7d0d6}
+.chat-close{flex:0 0 34px;width:34px;height:34px;display:grid;place-items:center;border:0;background:transparent;color:white;font-size:26px}
+.chat-messages{flex:1 1 0;min-height:0;overflow-y:auto;padding:14px;background:#f6f7f8;overscroll-behavior:contain}
+.message{display:block;width:fit-content;max-width:90%;padding:10px 12px;margin-bottom:10px;border-radius:10px;font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.bot-message{margin-right:auto;background:#e8edf0;color:#202b33;border-bottom-left-radius:3px}
+.user-message{margin-left:auto;background:#17232c;color:white;border-bottom-right-radius:3px}
+.quick-questions{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:6px;padding:10px;border-top:1px solid #e5e5e5;background:white}
+.quick-questions button{padding:7px 10px;border:1px solid #d8dfe4;border-radius:20px;background:white;color:#26333d;font-size:11px}
+.quick-questions button:hover{border-color:#d5a03f;background:#fff8e8}
+.chat-form{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:10px;border-top:1px solid #e5e5e5;background:white}
+.chat-form input{flex:1 1 0;width:0;min-width:0;height:42px;padding:10px;border:1px solid #d5dce2;background:white;color:#222}
+.chat-form button{flex:0 0 auto;height:42px;padding:0 13px;border:0;background:var(--gold);color:#17130b;font-weight:700}
+
+/* Responsive */
+@media(max-width:900px){
+  .nav-links{gap:14px}
+  .nav-links a{font-size:11px}
+  .about-grid{gap:35px}
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{gap:30px}
+}
+@media(max-width:650px){
+  .container{width:90%}
+  .section{padding:70px 0}
+  .nav{min-height:70px}
+  .brand{font-size:18px}
+  .menu-toggle{display:block}
+  .nav-links{position:absolute;top:70px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:12px 5% 20px;background:#101010;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:12px 0;font-size:14px}
+  .nav-links .nav-quote{text-align:center;margin-top:8px;padding:12px}
+  .hero h1{font-size:clamp(44px,12vw,68px);letter-spacing:-2px}
+  .hero-content{padding-top:110px}
+  .hero-copy{font-size:14px}
+  .hero-bottom{bottom:18px}
+  .hero-bottom span{font-size:9px;letter-spacing:1px}
+  .strip-grid{grid-template-columns:1fr}
+  .strip-item,.strip-item:first-child{padding:18px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .strip-item:last-child{border-bottom:0}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-image{min-height:320px}
+  .feature-list{gap:12px}
+  .section-top{align-items:start;flex-direction:column}
+  .video-grid{grid-template-columns:1fr}
+  .video-frame{aspect-ratio:16/10}
+  .service-grid,.project-grid{grid-template-columns:1fr}
+  .service-card{min-height:0}
+  .project-card img{height:230px}
+  .feature-banner{min-height:390px}
+  .cta-inner{align-items:start;flex-direction:column}
+  .form-row{grid-template-columns:1fr;gap:0}
+  .contact-form{padding:18px}
+  .chat-launcher{right:14px;bottom:14px;width:56px;height:56px}
+  .chat-panel{right:10px;bottom:80px;width:calc(100vw - 20px);height:min(500px,calc(100dvh - 100px));max-height:calc(100dvh - 100px)}
+  .chat-header{flex-basis:66px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important}
+}
+</style>
 </head>
 
 <body>
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand">RAM <span>CONSTRUCTION.</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" type="button">☰ Menu</button>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#videos">Our Videos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="nav-quote">LET'S TALK ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <!-- NAVIGATION -->
-  <header class="site-header">
-    <div class="container navbar">
-      <a class="logo" href="#home">RAM <span>CONSTRUCTION</span></a>
-
-      <button class="menu-toggle" id="menuToggle"
-        type="button" aria-expanded="false" aria-controls="navLinks">
-        ☰ Menu
-      </button>
-
-      <nav aria-label="Main navigation">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a class="nav-cta" href="#contact">Get a Quote</a></li>
-        </ul>
-      </nav>
+<main>
+  <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+      poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80" aria-hidden="true">
+      <source src="./hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <div class="eyebrow">Architecture · Engineering · Construction</div>
+      <h1>WE BUILD<br>BEYOND <span>EXPECTATIONS.</span></h1>
+      <p class="hero-copy">Thoughtful design. Quality construction. Spaces made for life. Let's turn your vision into something lasting.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact">START YOUR PROJECT ↗</a>
+        <a class="btn btn-outline" href="#videos">EXPLORE OUR WORK ↓</a>
+      </div>
     </div>
-  </header>
-
-  <main>
-
-    <!-- HERO VIDEO -->
-    <section class="hero" id="home">
-      <video
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
-        aria-hidden="true">
-        <source src="./hero.mp4" type="video/mp4">
-      </video>
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <div class="eyebrow">Quality • Trust • Excellence</div>
-        <h1>Building Your Dreams.<br>
-          <span>Creating Your Future.</span>
-        </h1>
-
-        <p>
-          From planning and construction to renovation, we help transform
-          your ideas into spaces you can be proud of. Let's build something
-          remarkable together.
-        </p>
-
-        <div class="button-row">
-          <a href="#contact" class="btn btn-gold">Discuss Your Project →</a>
-          <a href="#services" class="btn btn-outline">Explore Services</a>
-        </div>
-
-        <div class="hero-note">
-          RAM Construction — building with purpose.
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container about-grid">
-        <div class="about-visual">
-          <h3>Strong Foundations.<br>Lasting Impressions.</h3>
-        </div>
-
-        <div class="about-copy">
-          <div class="eyebrow">About RAM Construction</div>
-          <h2>Your Vision Deserves Quality Construction</h2>
-
-          <p>
-            Every successful building begins with a clear vision and
-            thoughtful planning. RAM Construction aims to provide
-            construction solutions with a focus on quality, communication
-            and attention to detail.
-          </p>
-
-          <p>
-            Whether you're planning a new home, a commercial space or a
-            renovation, let's discuss your requirements and the next steps.
-          </p>
-
-          <ul class="check-list">
-            <li>Residential construction</li>
-            <li>Commercial building solutions</li>
-            <li>Renovation and improvement</li>
-            <li>Project planning and consultation</li>
-          </ul>
-
-          <a href="#contact" class="btn btn-gold">Talk to Our Team</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="section services-section" id="services">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">What We Do</div>
-          <h2>Our Construction Services</h2>
-          <p>
-            Practical construction solutions designed around your space,
-            requirements and project goals.
-          </p>
-        </div>
-
-        <div class="service-grid">
-          <article class="service-card">
-            <div class="service-icon">🏠</div>
-            <h3>Residential Construction</h3>
-            <p>Plan and build homes that reflect your needs, lifestyle and design preferences.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">🏢</div>
-            <h3>Commercial Buildings</h3>
-            <p>Construction solutions for offices, business spaces and commercial properties.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">🛠️</div>
-            <h3>Renovation</h3>
-            <p>Refresh and improve existing spaces to better suit your requirements.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">📐</div>
-            <h3>Planning and Consultation</h3>
-            <p>Discuss project scope, requirements, budget and next steps before work begins.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">🧱</div>
-            <h3>Structural Work</h3>
-            <p>Construction planning around appropriate specifications and safety requirements.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">✨</div>
-            <h3>Interior Improvements</h3>
-            <p>Explore finishing and improvement options for functional, welcoming spaces.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Our Work</div>
-          <h2>Construction Inspiration</h2>
-          <p>
-            Explore residential, commercial and renovation concepts for
-            your next project.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80"
-              alt="Contemporary residential home"
-              loading="lazy">
-            <div class="project-copy">
-              <h3>Modern Residential Homes</h3>
-              <p>Contemporary home design and construction concepts.</p>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"
-              alt="Modern commercial building"
-              loading="lazy">
-            <div class="project-copy">
-              <h3>Commercial Spaces</h3>
-              <p>Concepts for modern business environments.</p>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <img
-              src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80"
-              alt="Modern home interior"
-              loading="lazy">
-            <div class="project-copy">
-              <h3>Interior Renovation</h3>
-              <p>Ideas for refreshing and improving existing spaces.</p>
-            </div>
-          </article>
-        </div>
-
-        <p class="project-note">
-          Reference images are illustrative concepts, not verified completed
-          RAM Construction projects. Replace them with your actual project
-          photos when available.
-        </p>
-      </div>
-    </section>
-
-    <!-- CALL TO ACTION -->
-    <section class="section cta-section">
-      <div class="container">
-        <h2>Planning Your Next Construction Project?</h2>
-        <p>
-          Tell us what you have in mind. Start a conversation about your
-          requirements and the next steps for your project.
-        </p>
-        <a href="#contact" class="btn btn-gold">Request a Consultation →</a>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Get in Touch</div>
-          <h2>Let's Build Something Together</h2>
-          <p>Share your project requirements to start an enquiry.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3>Contact RAM Construction</h3>
-            <p>
-              Planning a home, commercial building or renovation?
-              Send us your enquiry to discuss your project.
-            </p>
-
-            <div class="contact-detail">
-              <strong>✉ Email</strong>
-              <span>YOUR_EMAIL@example.com</span>
-            </div>
-
-            <div class="contact-detail">
-              <strong>☎ Phone</strong>
-              <span>YOUR_PHONE_NUMBER</span>
-            </div>
-
-            <div class="contact-detail">
-              <strong>⌖ Location</strong>
-              <span>YOUR_CITY, YOUR_STATE</span>
-            </div>
-          </div>
-
-          <form class="contact-form" id="contactForm">
-            <label for="customerName">Your Name</label>
-            <input id="customerName" name="name" type="text"
-              placeholder="Enter your name" required>
-
-            <label for="customerEmail">Email Address</label>
-            <input id="customerEmail" name="email" type="email"
-              placeholder="Enter your email" required>
-
-            <label for="customerPhone">Phone Number</label>
-            <input id="customerPhone" name="phone" type="tel"
-              placeholder="Enter your phone number">
-
-            <label for="projectType">Project Type</label>
-            <select id="projectType" name="projectType" required>
-              <option value="">Select a project type</option>
-              <option>Residential Construction</option>
-              <option>Commercial Construction</option>
-              <option>Renovation</option>
-              <option>Planning and Consultation</option>
-              <option>Other</option>
-            </select>
-
-            <label for="projectMessage">Project Details</label>
-            <textarea id="projectMessage" name="message"
-              placeholder="Describe your project..." required></textarea>
-
-            <button type="submit" class="btn btn-gold">
-              Prepare Email Enquiry →
-            </button>
-
-            <p class="form-note" id="formNote">
-              This form opens an email draft. It does not save submissions
-              to a server.
-            </p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <p>© <span id="currentYear"></span> RAM Construction. All rights reserved.</p>
-      <a href="#home">Back to top ↑</a>
+    <div class="hero-bottom">
+      <span>RAM Construction · Building with purpose</span>
+      <div class="scroll-mark"><span>SCROLL TO EXPLORE</span><i></i></div>
     </div>
-  </footer>
-
-  <!-- CHATBOT BUTTON -->
-  <button
-    class="chat-launcher"
-    id="chatLauncher"
-    type="button"
-    aria-label="Open RAM Construction assistant"
-    aria-controls="chatPanel"
-    aria-expanded="false">
-    💬
-  </button>
-
-  <!-- CHATBOT WINDOW -->
-  <section
-    class="chat-panel"
-    id="chatPanel"
-    role="dialog"
-    aria-label="RAM Construction assistant"
-    aria-hidden="true">
-
-    <div class="chat-header">
-      <div class="chat-title">
-        <strong>RAM Assistant 🏗️</strong>
-        <small>Construction enquiry assistant</small>
-      </div>
-      <button
-        class="chat-close"
-        id="chatClose"
-        type="button"
-        aria-label="Close chatbot">×</button>
-    </div>
-
-    <div class="chat-messages" id="chatMessages" aria-live="polite">
-      <div class="message bot-message">Hello! Welcome to RAM Construction. 👋
-
-I can help you explore our services, understand the enquiry process, or prepare a quote request. What would you like to know?</div>
-    </div>
-
-    <div class="quick-questions">
-      <button type="button" data-question="services">Our services</button>
-      <button type="button" data-question="quote">Get a quote</button>
-      <button type="button" data-question="projects">Projects</button>
-      <button type="button" data-question="contact">Contact details</button>
-    </div>
-
-    <form class="chat-form" id="chatForm">
-      <input
-        id="chatInput"
-        type="text"
-        placeholder="Ask a question..."
-        aria-label="Type your question"
-        maxlength="500"
-        required>
-      <button type="submit">Send</button>
-    </form>
   </section>
 
-  <script>
-    "use strict";
+  <div class="intro-strip">
+    <div class="container strip-grid">
+      <div class="strip-item"><strong>Designed with purpose.</strong><span>Planning that starts with your vision.</span></div>
+      <div class="strip-item"><strong>Built with care.</strong><span>Quality-focused construction solutions.</span></div>
+      <div class="strip-item"><strong>Made to last.</strong><span>Spaces designed around real needs.</span></div>
+    </div>
+  </div>
 
-    // MOBILE NAVIGATION
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85" alt="Contemporary residential architecture" loading="lazy">
+        <div class="image-label">BUILDING YOUR VISION, STEP BY STEP</div>
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow">01 / Who We Are</div>
+        <h2>More than buildings.<br><span class="gold">A lasting impression.</span></h2>
+        <p>Every great space begins with an idea. RAM Construction aims to bring ideas to life through thoughtful planning, quality-focused construction and clear communication.</p>
+        <p>From residential projects to commercial spaces and renovations, we invite you to discuss your requirements and explore the possibilities.</p>
+        <div class="feature-list">
+          <div><span>↗</span> Residential construction</div>
+          <div><span>↗</span> Commercial spaces</div>
+          <div><span>↗</span> Renovation projects</div>
+          <div><span>↗</span> Project consultation</div>
+        </div>
+        <a href="#contact" class="btn btn-outline">DISCUSS YOUR PROJECT ↗</a>
+      </div>
+    </div>
+  </section>
 
-    menuToggle.addEventListener("click", function () {
-      const open = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(open));
+  <section class="section videos-section" id="videos">
+    <div class="container">
+      <div class="section-top">
+        <div class="section-title">
+          <div class="eyebrow">02 / Visual Stories</div>
+          <h2>Built to be <span class="gold">experienced.</span></h2>
+        </div>
+        <p>Explore construction, architectural details and spaces that inspire your next project.</p>
+      </div>
+
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame">
+            <video controls muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80">
+              <source src="./hero.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption"><span>Film 01 · Featured</span><h3>Building the Vision</h3><p>Our featured construction film.</p></div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-frame">
+            <video controls muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80">
+              <source src="./construction-2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption"><span>Film 02 · Construction</span><h3>From Ground Up</h3><p>Construction process and site activity.</p></div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-frame">
+            <video controls muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=900&q=80">
+              <source src="./construction-3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption"><span>Film 03 · Architecture</span><h3>Architecture in Motion</h3><p>Architectural details and building design.</p></div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-frame">
+            <video controls muted playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80">
+              <source src="./construction-4.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption"><span>Film 04 · Spaces</span><h3>Designed to Inspire</h3><p>Completed spaces and finishing details.</p></div>
+        </article>
+      </div>
+      <p class="video-help">Use the video controls to play each film. Each MP4 must be uploaded to the repository root.</p>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title">
+        <div class="eyebrow">03 / What We Do</div>
+        <h2>Every detail has a <span class="gold">purpose.</span></h2>
+        <p>Explore construction services shaped around your project, space and requirements.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><span class="service-number">01 / HOMES</span><h3>Residential Construction</h3><p>Home construction aligned with your lifestyle, preferences and plans.</p></article>
+        <article class="service-card"><span class="service-number">02 / BUSINESS</span><h3>Commercial Buildings</h3><p>Construction solutions for offices, retail and business spaces.</p></article>
+        <article class="service-card"><span class="service-number">03 / RENEW</span><h3>Renovation</h3><p>Improve existing spaces with considered updates and improvements.</p></article>
+        <article class="service-card"><span class="service-number">04 / PLAN</span><h3>Project Consultation</h3><p>Discuss scope, requirements, design considerations and next steps.</p></article>
+        <article class="service-card"><span class="service-number">05 / STRUCTURE</span><h3>Structural Work</h3><p>Plan structural work with appropriate specifications and professional guidance.</p></article>
+        <article class="service-card"><span class="service-number">06 / FINISH</span><h3>Interior Improvements</h3><p>Explore finishing options that make spaces functional and welcoming.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-banner">
+    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=85" alt="" loading="lazy">
+    <div class="container">
+      <div class="feature-banner-content">
+        <div class="eyebrow">Good spaces start with good conversations</div>
+        <h2>Your idea.<br>Our next <span class="gold">project.</span></h2>
+        <p>Have a plan in mind? Let's discuss your needs, explore options and identify a practical way forward.</p>
+        <a href="#contact" class="btn">TELL US YOUR PLAN ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-top">
+        <div class="section-title">
+          <div class="eyebrow">04 / Project Gallery</div>
+          <h2>Ideas made <span class="gold">visible.</span></h2>
+        </div>
+        <p>Explore visual references for residential, commercial and interior projects.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card"><div class="project-image"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" alt="Contemporary residential home concept" loading="lazy"></div><div class="project-info"><span>Residential</span><h3>Modern Living</h3><p>Contemporary home design inspiration.</p></div></article>
+        <article class="project-card"><div class="project-image"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" alt="Commercial building concept" loading="lazy"></div><div class="project-info"><span>Commercial</span><h3>Urban Spaces</h3><p>Modern commercial architecture inspiration.</p></div></article>
+        <article class="project-card"><div class="project-image"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85" alt="Contemporary interior concept" loading="lazy"></div><div class="project-info"><span>Interiors</span><h3>Finishing Touches</h3><p>Interior design and renovation inspiration.</p></div></article>
+      </div>
+      <p class="disclaimer">Gallery images are illustrative references, not verified completed RAM Construction projects. Replace them with actual company work when available.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-inner">
+      <div><h2>Let's make your next build matter.</h2><p>Share your plans. Start a conversation about your project.</p></div>
+      <a class="btn" href="#contact">DISCUSS YOUR PROJECT ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">05 / Contact</div>
+        <h2>Let's start with <span class="gold">your idea.</span></h2>
+        <p>Tell us about the space you want to build, improve or transform.</p>
+        <div class="contact-detail"><strong>EMAIL</strong><span>YOUR_EMAIL@example.com</span></div>
+        <div class="contact-detail"><strong>PHONE</strong><span>YOUR_PHONE_NUMBER</span></div>
+        <div class="contact-detail"><strong>LOCATION</strong><span>YOUR_CITY, YOUR_STATE</span></div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div><label for="name">Your name</label><input id="name" name="name" required placeholder="Full name"></div>
+          <div><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div>
+        </div>
+        <div class="form-row">
+          <div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="Your number"></div>
+          <div><label for="type">Project type</label><select id="type" name="type" required><option value="">Choose one</option><option>Residential</option><option>Commercial</option><option>Renovation</option><option>Consultation</option><option>Other</option></select></div>
+        </div>
+        <label for="details">Tell us about your project</label>
+        <textarea id="details" name="details" required placeholder="Location, project size, requirements..."></textarea>
+        <button class="btn" type="submit">PREPARE ENQUIRY ↗</button>
+        <p class="form-note" id="formNote">This form opens an email draft; it does not store enquiries on a server.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <p>© <span id="year"></span> RAM Construction. All rights reserved.</p>
+    <a href="#home">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+<button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open RAM Assistant" aria-controls="chatPanel" aria-expanded="false">💬</button>
+
+<section class="chat-panel" id="chatPanel" role="dialog" aria-label="RAM Construction Assistant" aria-hidden="true">
+  <div class="chat-header">
+    <div class="chat-title"><strong>RAM Assistant 🏗️</strong><small>Construction enquiry assistant</small></div>
+    <button class="chat-close" id="chatClose" type="button" aria-label="Close chatbot">×</button>
+  </div>
+  <div class="chat-messages" id="chatMessages" aria-live="polite">
+    <div class="message bot-message">Welcome to RAM Construction! 👋
+
+Are you planning a new home, a commercial building or a renovation? I can help you explore our services and prepare an enquiry.</div>
+  </div>
+  <div class="quick-questions">
+    <button type="button" data-question="services">Our services</button>
+    <button type="button" data-question="quote">Get a quote</button>
+    <button type="button" data-question="projects">Projects</button>
+    <button type="button" data-question="contact">Contact details</button>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" maxlength="500" placeholder="Ask a question..." aria-label="Ask a question" required>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<script>
+"use strict";
+
+// Mobile navigation
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+menuToggle.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(open));
+});
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Footer year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Hero video
+const heroVideo = document.querySelector(".hero-video");
+function playHeroVideo() {
+  const attempt = heroVideo.play();
+  if (attempt && attempt.catch) attempt.catch(() => {});
+}
+heroVideo.addEventListener("canplay", playHeroVideo);
+window.addEventListener("load", playHeroVideo);
+
+// Do not play multiple gallery videos simultaneously.
+document.querySelectorAll(".video-card video").forEach(video => {
+  video.addEventListener("play", () => {
+    document.querySelectorAll(".video-card video").forEach(other => {
+      if (other !== video) other.pause();
     });
+  });
+});
 
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
+// Contact form: replace with the real company email.
+const COMPANY_EMAIL = "YOUR_EMAIL@example.com";
+document.getElementById("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const note = document.getElementById("formNote");
+  if (COMPANY_EMAIL === "YOUR_EMAIL@example.com") {
+    note.textContent = "Please replace COMPANY_EMAIL in the script with the real company email.";
+    return;
+  }
+  const data = new FormData(event.currentTarget);
+  const subject = encodeURIComponent("RAM Construction enquiry - " + data.get("name"));
+  const body = encodeURIComponent(
+    "Name: " + data.get("name") + "\n" +
+    "Email: " + data.get("email") + "\n" +
+    "Phone: " + (data.get("phone") || "Not provided") + "\n" +
+    "Project type: " + data.get("type") + "\n\n" +
+    "Details:\n" + data.get("details")
+  );
+  window.location.href = "mailto:" + COMPANY_EMAIL + "?subject=" + subject + "&body=" + body;
+});
 
-    // FOOTER YEAR
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
+// Chatbot
+const chatLauncher = document.getElementById("chatLauncher");
+const chatPanel = document.getElementById("chatPanel");
+const chatClose = document.getElementById("chatClose");
+const chatMessages = document.getElementById("chatMessages");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
 
-    // BACKGROUND VIDEO
-    const heroVideo = document.querySelector(".hero-video");
+function setChatOpen(open) {
+  chatPanel.classList.toggle("open", open);
+  chatPanel.setAttribute("aria-hidden", String(!open));
+  chatLauncher.setAttribute("aria-expanded", String(open));
+  if (open) chatInput.focus();
+}
+chatLauncher.addEventListener("click", () => setChatOpen(!chatPanel.classList.contains("open")));
+chatClose.addEventListener("click", () => {
+  setChatOpen(false);
+  chatLauncher.focus();
+});
 
-    function startHeroVideo() {
-      if (!heroVideo) return;
+function addMessage(text, sender) {
+  const element = document.createElement("div");
+  element.className = "message " + (sender === "user" ? "user-message" : "bot-message");
+  element.textContent = text;
+  chatMessages.appendChild(element);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
 
-      const attempt = heroVideo.play();
+function getReply(question) {
+  const q = question.toLowerCase();
+  if (/service|what do you do/.test(q))
+    return "We can discuss residential construction, commercial buildings, renovation and project consultation. Which service interests you?";
+  if (/quote|cost|price|budget|estimate/.test(q))
+    return "Construction costs depend on location, area, design, materials and project scope. Please complete the contact form with your requirements.";
+  if (/project|portfolio|gallery|work|photo/.test(q))
+    return "Explore the Projects section for visual references. The current images are illustrative concepts, not verified completed RAM Construction projects.";
+  if (/contact|phone|email|reach/.test(q))
+    return "Please visit the Contact section for company contact details and the enquiry form. Replace the placeholder details with verified business information.";
+  if (/time|duration|how long/.test(q))
+    return "Construction timelines depend on project size, design, approvals, weather and material availability. Share your requirements through the Contact section.";
+  if (/location|where/.test(q))
+    return "Please check the Location field in the Contact section for the company's service area.";
+  if (/hello|^hi\b|hey/.test(q))
+    return "Hello! 👋 Welcome to RAM Construction. Are you planning a home, commercial building or renovation?";
+  if (/thank/.test(q))
+    return "You're welcome! Thank you for considering RAM Construction. 😊";
+  return "Thanks for your question! I can help with general information about construction services, projects and enquiries. For project-specific details, please use the Contact section.";
+}
 
-      if (attempt && typeof attempt.catch === "function") {
-        attempt.catch(function () {
-          console.info(
-            "Video autoplay was blocked or the video could not be loaded."
-          );
-        });
-      }
-    }
+function sendMessage(text) {
+  const cleaned = text.trim();
+  if (!cleaned) return;
+  addMessage(cleaned, "user");
+  addMessage(getReply(cleaned), "bot");
+}
 
-    heroVideo.addEventListener("canplay", startHeroVideo);
-    window.addEventListener("load", startHeroVideo);
+chatForm.addEventListener("submit", event => {
+  event.preventDefault();
+  sendMessage(chatInput.value);
+  chatInput.value = "";
+  chatInput.focus();
+});
 
-    // CONTACT FORM
-    // Replace with the company's real email address.
-    const COMPANY_EMAIL = "YOUR_EMAIL@example.com";
-
-    document.getElementById("contactForm").addEventListener(
-      "submit",
-      function (event) {
-        event.preventDefault();
-
-        const note = document.getElementById("formNote");
-
-        if (COMPANY_EMAIL === "YOUR_EMAIL@example.com") {
-          note.textContent =
-            "Please replace COMPANY_EMAIL in the script with the real company email before using this form.";
-          return;
-        }
-
-        const data = new FormData(this);
-
-        const subject = encodeURIComponent(
-          "Construction enquiry from " + data.get("name")
-        );
-
-        const body = encodeURIComponent(
-          "Construction enquiry\n\n" +
-          "Name: " + data.get("name") + "\n" +
-          "Email: " + data.get("email") + "\n" +
-          "Phone: " + (data.get("phone") || "Not provided") + "\n" +
-          "Project type: " + data.get("projectType") + "\n\n" +
-          "Details:\n" + data.get("message")
-        );
-
-        window.location.href =
-          "mailto:" + COMPANY_EMAIL +
-          "?subject=" + subject + "&body=" + body;
-      }
-    );
-
-    // CHATBOT ELEMENTS
-    const chatLauncher = document.getElementById("chatLauncher");
-    const chatPanel = document.getElementById("chatPanel");
-    const chatClose = document.getElementById("chatClose");
-    const chatMessages = document.getElementById("chatMessages");
-    const chatForm = document.getElementById("chatForm");
-    const chatInput = document.getElementById("chatInput");
-
-    // OPEN / CLOSE CHAT
-    function setChatOpen(open) {
-      chatPanel.classList.toggle("open", open);
-      chatPanel.setAttribute("aria-hidden", String(!open));
-      chatLauncher.setAttribute("aria-expanded", String(open));
-
-      if (open) {
-        chatInput.focus();
-      }
-    }
-
-    chatLauncher.addEventListener("click", function () {
-      setChatOpen(!chatPanel.classList.contains("open"));
-    });
-
-    chatClose.addEventListener("click", function () {
-      setChatOpen(false);
-      chatLauncher.focus();
-    });
-
-    // DISPLAY CHAT MESSAGES SAFELY
-    function addMessage(text, sender) {
-      const message = document.createElement("div");
-
-      message.classList.add("message");
-      message.classList.add(
-        sender === "user" ? "user-message" : "bot-message"
-      );
-
-      message.textContent = text;
-      chatMessages.appendChild(message);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    // PREDEFINED CHATBOT ANSWERS
-    function getBotReply(question) {
-      const q = question.toLowerCase();
-
-      if (
-        q.includes("service") ||
-        q.includes("what do you do")
-      ) {
-        return "RAM Construction offers information about residential construction, commercial buildings, renovation, and project consultation. Which service are you interested in?";
-      }
-
-      if (
-        q.includes("quote") ||
-        q.includes("cost") ||
-        q.includes("price") ||
-        q.includes("budget")
-      ) {
-        return "Construction costs depend on the location, built-up area, design, materials, and scope of work. Please complete the Contact form with your project details to prepare an enquiry.";
-      }
-
-      if (
-        q.includes("project") ||
-        q.includes("portfolio") ||
-        q.includes("work") ||
-        q.includes("photo")
-      ) {
-        return "Please explore the Projects section for illustrative construction concepts. These are reference images, not verified completed RAM Construction projects.";
-      }
-
-      if (
-        q.includes("contact") ||
-        q.includes("phone") ||
-        q.includes("email") ||
-        q.includes("reach")
-      ) {
-        return "Please visit the Contact section for the company's contact details and enquiry form. The placeholder email and phone number must be replaced with verified business details.";
-      }
-
-      if (
-        q.includes("time") ||
-        q.includes("duration") ||
-        q.includes("how long")
-      ) {
-        return "Project timelines depend on size, design, approvals, weather, and material availability. Share your project requirements through the Contact section to discuss a suitable timeline.";
-      }
-
-      if (
-        q.includes("location") ||
-        q.includes("where")
-      ) {
-        return "Please check the Location field in the Contact section for the company's service area.";
-      }
-
-      if (
-        q.includes("hello") ||
-        q.includes("hi") ||
-        q.includes("hey")
-      ) {
-        return "Hello! 👋 Welcome to RAM Construction. Are you planning a new home, a commercial building, or a renovation?";
-      }
-
-      if (q.includes("thank")) {
-        return "You're welcome! 😊 Feel free to ask about our services or prepare an enquiry.";
-      }
-
-      return "Thanks for your question! I can answer general questions about construction services, project enquiries, and quotes. For a specific project, please use the Contact section.";
-    }
-
-    function sendChatMessage(question) {
-      const cleaned = question.trim();
-
-      if (!cleaned) return;
-
-      addMessage(cleaned, "user");
-      addMessage(getBotReply(cleaned), "bot");
-    }
-
-    // SEND MESSAGE WITH ENTER OR SEND BUTTON
-    chatForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      sendChatMessage(chatInput.value);
-      chatInput.value = "";
-      chatInput.focus();
-    });
-
-    // QUICK QUESTIONS
-    const quickQuestions = {
-      services: "What services do you offer?",
-      quote: "How can I get a construction quote?",
-      projects: "Can I see your projects?",
-      contact: "How can I contact you?"
-    };
-
-    document.querySelectorAll("[data-question]").forEach(
-      function (button) {
-        button.addEventListener("click", function () {
-          sendChatMessage(
-            quickQuestions[button.dataset.question]
-          );
-        });
-      }
-    );
-  </script>
+const quickAnswers = {
+  services: "What services do you offer?",
+  quote: "How can I get a construction quote?",
+  projects: "Can I see your projects?",
+  contact: "How can I contact you?"
+};
+document.querySelectorAll("[data-question]").forEach(button => {
+  button.addEventListener("click", () => sendMessage(quickAnswers[button.dataset.question]));
+});
+</script>
 </body>
 </html>
